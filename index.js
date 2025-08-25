@@ -526,7 +526,7 @@ let mapX = -1000;
 let mapY = -4900;
 
 const baseSpeed = 2;
-const runSpeed = 6;
+const runSpeed = 4;
 // const speed = keys.space ? runSpeed : baseSpeed;
 
 // Keyboard state
