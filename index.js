@@ -73,10 +73,13 @@ const signImage = new Image();
 signImage.src = './img/Sign.png';
 
 let marbleCount = 0;
-document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('marble-count').innerText = `x ${marbleCount}`; 
 
-const bgMusic = document.getElementById('bg-music');
+document.addEventListener('DOMContentLoaded', () => {
+  // Set the initial marble count
+  document.getElementById('marble-count').innerText = `x ${marbleCount}`; 
+
+  // Setup background music play on first keypress
+  const bgMusic = document.getElementById('bg-music');
 
   document.addEventListener('keydown', () => {
     if (bgMusic.paused) {
@@ -85,6 +88,7 @@ const bgMusic = document.getElementById('bg-music');
       });
     }
   });
+
 });
 
 let rpsPopupOpen = false;
