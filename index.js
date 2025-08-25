@@ -1413,14 +1413,4 @@ function closeNPCDialogue() {
   
     closeSummitPopup();
   }
-  
-  function toggleMusic() {
-  const bgMusic = document.getElementById('bg-music');
-  musicStarted = true; // ✅ Prevent autoplay from interfering
 
-  if (bgMusic.paused) {
-    bgMusic.play();
-  } else {
-    bgMusic.pause();
-  }
-}
