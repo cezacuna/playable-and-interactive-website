@@ -70,7 +70,7 @@ summitPostImage.src = './img/SummitPost.png';
 
 // Load sign
 const signImage = new Image();
-signImage.src = './img/sign.png';
+signImage.src = './img/Sign.png';
 
 let marbleCount = 0;
 document.addEventListener('DOMContentLoaded', () => {
