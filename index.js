@@ -74,8 +74,7 @@ signImage.src = './img/Sign.png';
 
 let marbleCount = 0;
 document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('marble-count').innerText = `x ${marbleCount}`;
-  });  
+    document.getElementById('marble-count').innerText = `x ${marbleCount}`; 
 
 const bgMusic = document.getElementById('bg-music');
 
