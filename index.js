@@ -73,20 +73,21 @@ const signImage = new Image();
 signImage.src = './img/Sign.png';
 
 let marbleCount = 0;
-let musicManuallyToggled = false;
+let musicStarted = false; 
 
 document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('marble-count').innerText = `x ${marbleCount}`; 
+  document.getElementById('marble-count').innerText = `x ${marbleCount}`;
 
   const bgMusic = document.getElementById('bg-music');
 
-  document.addEventListener('keydown', () => {
-    if (!musicManuallyToggled && bgMusic.paused) {
-      bgMusic.play().catch(e => {
-        console.log("Autoplay prevented:", e);
-      });
+  const startMusicOnce = () => {
+    if (!musicStarted) {
+      bgMusic.play().catch(e => console.log("Autoplay blocked:", e));
+      musicStarted = true;
     }
-  });
+  };
+
+  window.addEventListener('keydown', startMusicOnce, { once: true });
 });
 
 let rpsPopupOpen = false;
@@ -1415,7 +1416,7 @@ function closeNPCDialogue() {
   
   function toggleMusic() {
   const bgMusic = document.getElementById('bg-music');
-  musicManuallyToggled = true;
+  musicStarted = true; // ✅ Prevent autoplay from interfering
 
   if (bgMusic.paused) {
     bgMusic.play();
