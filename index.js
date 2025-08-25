@@ -77,6 +77,17 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('marble-count').innerText = `x ${marbleCount}`;
   });  
 
+const bgMusic = document.getElementById('bg-music');
+
+  document.addEventListener('keydown', () => {
+    if (bgMusic.paused) {
+      bgMusic.play().catch(e => {
+        console.log("Autoplay prevented:", e);
+      });
+    }
+  });
+});
+
 let rpsPopupOpen = false;
 const choices = ['rock', 'paper', 'scissors'];
 
@@ -1401,3 +1412,11 @@ function closeNPCDialogue() {
     closeSummitPopup();
   }
   
+  function toggleMusic() {
+  const bgMusic = document.getElementById('bg-music');
+  if (bgMusic.paused) {
+    bgMusic.play();
+  } else {
+    bgMusic.pause();
+  }
+}
