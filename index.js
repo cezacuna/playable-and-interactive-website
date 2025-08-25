@@ -239,10 +239,10 @@ const tent = {
 
   let hasFlag = false;
   const flagImage = new Image();
-  flagImage.src = './img/flag.png';
+  flagImage.src = './img/Flag.png';
 
   const marbleImage = new Image();
-  marbleImage.src = './img/marble.png';
+  marbleImage.src = './img/Marble.png';
   
   let currentHatImage = null;
   const hatImages = {
