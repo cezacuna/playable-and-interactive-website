@@ -88,7 +88,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   });
-
 });
 
 let rpsPopupOpen = false;
