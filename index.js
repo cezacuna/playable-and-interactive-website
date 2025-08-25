@@ -73,16 +73,15 @@ const signImage = new Image();
 signImage.src = './img/Sign.png';
 
 let marbleCount = 0;
+let musicManuallyToggled = false;
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Set the initial marble count
   document.getElementById('marble-count').innerText = `x ${marbleCount}`; 
 
-  // Setup background music play on first keypress
   const bgMusic = document.getElementById('bg-music');
 
   document.addEventListener('keydown', () => {
-    if (bgMusic.paused) {
+    if (!musicManuallyToggled && bgMusic.paused) {
       bgMusic.play().catch(e => {
         console.log("Autoplay prevented:", e);
       });
@@ -1416,6 +1415,8 @@ function closeNPCDialogue() {
   
   function toggleMusic() {
   const bgMusic = document.getElementById('bg-music');
+  musicManuallyToggled = true;
+
   if (bgMusic.paused) {
     bgMusic.play();
   } else {
