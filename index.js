@@ -80,14 +80,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const bgMusic = document.getElementById('bg-music');
 
-  const startMusicOnce = () => {
-    if (!musicStarted) {
+  const startMusic = () => {
+    if (bgMusic.paused) {
       bgMusic.play().catch(e => console.log("Autoplay blocked:", e));
-      musicStarted = true;
     }
+    window.removeEventListener('keydown', startMusic);
   };
 
-  window.addEventListener('keydown', startMusicOnce, { once: true });
+  window.addEventListener('keydown', startMusic);
 });
 
 let rpsPopupOpen = false;
