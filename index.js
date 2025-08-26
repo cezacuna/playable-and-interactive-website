@@ -1414,3 +1414,25 @@ function closeNPCDialogue() {
     closeSummitPopup();
   }
 
+function startGame() {
+  document.getElementById('start-screen').style.display = 'none';
+
+  // Play background music (if autoplay is enabled on first interaction)
+  const bgMusic = document.getElementById('bg-music');
+  if (bgMusic && bgMusic.paused) {
+    bgMusic.play().catch(e => console.log("Autoplay blocked:", e));
+  }
+
+  // Start the animation loop (if not already started)
+  if (mapLoaded && playerLoaded && foregroundLoaded) {
+    animate();
+  }
+}
+
+function openInstructions() {
+  document.getElementById('instructions-popup').style.display = 'block';
+}
+
+function closeInstructions() {
+  document.getElementById('instructions-popup').style.display = 'none';
+}
