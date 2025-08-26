@@ -60,6 +60,54 @@
     }
   </style>
 </head>
+
+  <!-- Start Screen -->
+<div id="start-screen" style="
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('./img/WildrangeStartScreen.png') no-repeat center center;
+  background-size: cover;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  image-rendering: pixelated;
+">
+
+  <!-- Start Button -->
+  <img src="./img/StartButton.png" width="300" height="120" onclick="startGame()" style="cursor: pointer; margin-bottom: 40px;" />
+
+  <!-- Instructions Button -->
+  <img src="./img/InstructionsButton.png" width="300" height="120" onclick="openInstructions()" style="cursor: pointer;" />
+</div>
+
+<!-- Instructions Popup -->
+<div id="instructions-popup" style="
+  display: none;
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10000;
+  image-rendering: pixelated;
+">
+  <img src="./img/Instructions.png" style="width: 900px; height: auto; display: block;">
+
+  <!-- Close Button -->
+  <div style="
+    position: absolute;
+    bottom: -70px;
+    left: 50%;
+    transform: translateX(-50%);
+  ">
+    <img src="./img/CloseButton.png" width="300" height="120" onclick="closeInstructions()" style="cursor: pointer;">
+  </div>
+</div>
+  
 <body style="
   margin: 0;
   background-color: black;
