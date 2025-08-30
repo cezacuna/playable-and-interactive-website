@@ -525,8 +525,8 @@ const player = {
 let mapX = -1000;
 let mapY = -4900;
 
-const baseSpeed = 2;
-const runSpeed = 4;
+const baseSpeed = 1;
+const runSpeed = 2;
 // const speed = keys.space ? runSpeed : baseSpeed;
 
 // Keyboard state
