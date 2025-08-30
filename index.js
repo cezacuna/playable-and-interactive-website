@@ -1,16 +1,3 @@
-// const canvas = document.querySelector('canvas');
-// const context = canvas.getContext('2d')
-
-// canvas.width = 1024
-// canvas.height = 576
-
-// const image = new Image ()
-// image.src = './img/Wildrange Map.png'
-
-// // image.onload = () => {
-// //     context.drawImage(image, -950, -4900)
-// // }
-
 const canvas = document.querySelector('canvas');
 const context = canvas.getContext('2d');
 
@@ -333,7 +320,7 @@ const frameCount = 4; // how many frames per direction
 
 let npcDialogueOpen = false;
 
-// Replace this with your full collision data array
+// Collision data array
 const collisionData = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -405,13 +392,13 @@ collisionData.forEach((value, index) => {
     }
 });
 
-// Remove collision from the table (so it's interactable but not solid)
+// Remove collision from the table making it interactable
 boundaries = boundaries.filter(b => !(b.x === table.x && b.y === table.y));
 boundaries = boundaries.filter(b => !(b.x === jacketTable.x && b.y === jacketTable.y));
 boundaries = boundaries.filter(b => !(b.x === numberTable.x && b.y === numberTable.y));
 boundaries = boundaries.filter(b => !(b.x === welcomeSign.x && b.y === welcomeSign.y));
 
-// Add NPC1 as a solid collision object
+// Add NPCs as solid collision object
   boundaries.push({
     x: npc1.x,
     y: npc1.y,
@@ -464,7 +451,7 @@ boundaries = boundaries.filter(b => !(b.x === welcomeSign.x && b.y === welcomeSi
         height: camperVan3.height
     });
 
-    // Add Summit Post collision
+    // Summit Post boundary
     boundaries.push({
         x: summitPost.x,
         y: summitPost.y,
@@ -521,12 +508,12 @@ const player = {
   };
   
 
-// Initial map offset (camera)
+// Initial map offset 
 let mapX = -1000;
 let mapY = -4900;
 
-const baseSpeed = 1;
-const runSpeed = 2;
+const baseSpeed = 2;
+const runSpeed = 4;
 // const speed = keys.space ? runSpeed : baseSpeed;
 
 // Keyboard state
@@ -849,7 +836,7 @@ if (isMoving) {
         TILE_SIZE, TILE_SIZE
         );
 
-    // 🎩 Draw Hat if selected
+    // Draw Hat if selected
     if (currentHatImage) {
         const hatOffsetX = 0;
         const hatOffsetY = 0; // Adjust upward
@@ -862,7 +849,7 @@ if (isMoving) {
         );
     }  
 
-    // 🧥 Draw Jacket if selectesd
+    // Draw Jacket if selectesd
     if (currentJacketImage) {
         const jacketOffsetX = 0;
         const jacketOffsetY = 0;
@@ -875,7 +862,7 @@ if (isMoving) {
         );
     }
 
-    // Draw foreground layer (AFTER player)
+    // Draw foreground layer
     context.drawImage(foregroundImage, mapX, mapY); 
 }  
 
@@ -1417,13 +1404,13 @@ function closeNPCDialogue() {
 function startGame() {
   document.getElementById('start-screen').style.display = 'none';
 
-  // Play background music (if autoplay is enabled on first interaction)
+  // Play background music
   const bgMusic = document.getElementById('bg-music');
   if (bgMusic && bgMusic.paused) {
     bgMusic.play().catch(e => console.log("Autoplay blocked:", e));
   }
 
-  // Start the animation loop (if not already started)
+  // Start the animation loop
   if (mapLoaded && playerLoaded && foregroundLoaded) {
     animate();
   }
